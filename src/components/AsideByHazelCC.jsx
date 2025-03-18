@@ -4,7 +4,15 @@ import '../styles/componentscss/AsideByHazelCC.css'
 function AsideByHazelCC() {
     //logica
   return (
-    <div>AsideByHazelCC</div>
+    <div>
+      <aside>
+        <div>Muro</div>
+        <div>Galeria</div>
+        <div>Trueque</div>
+        <div>Mensajes</div>
+        <div>Fundadora</div>
+      </aside>
+    </div>
   )
 }
 

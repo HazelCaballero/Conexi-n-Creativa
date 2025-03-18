@@ -1,6 +1,12 @@
 {
   "usersCC": [
-  
+    {
+      "id": "64c1",
+      "nameU": "Hazel12345",
+      "emailU": "Hazel12345@gmail.com",
+      "passwordU": "Hazel12345",
+      "phoneU": "83031497"
+    }
   ],
   "baterings": []
 }
