@@ -1,0 +1,76 @@
+/* Contenedor principal */
+.foundress-container {
+    text-align: center;         
+    padding: 20px;                
+    max-width: 800px;           
+    margin: 0 auto;               
+  }
+  
+  /* Estilo del título dentro del contenedor */
+  .foundress-container h1 {
+    font-size: 2.5rem;            
+    color: #2d2d2d;                
+    margin-bottom: 20px;         
+  }
+  
+  /* Contenedor de la imagen */
+  .foundress-image-container {
+    display: flex;                 
+    justify-content: center;      
+    margin-bottom: 20px;          
+  }
+  
+  /* Estilo de la imagen */
+  .foundress-image {
+    width: 150px;                
+    height: 150px;               
+    border-radius: 5%;           
+    object-fit: cover;            
+  }
+  
+  /* Estilo del texto dentro del contenedor */
+  .foundress-container p {
+    font-size: 1.1rem;            
+    color: #555;                   
+    line-height: 1.6;              
+    margin-bottom: 20px;          
+    padding: 0 20px;              
+  }
+  
+  /* Contenedor y estilo del botón de llamada a la acción (CTA) */
+  .cta-container {
+    margin-top: 30px;            
+  }
+  
+  .cta-button {
+    background-color: #6a5acd;     
+    color: white;               
+    padding: 12px 30px;             
+    font-size: 1.1rem;            
+    border: none;                 
+    border-radius: 5px;           
+    cursor: pointer;            
+    transition: background-color 0.3s ease; 
+  }
+  
+  /* Estilo para el estado cuando el cursor pasa sobre el botón */
+  .cta-button:hover {
+    background-color: #5a4bc7;    
+  }
+  
+  /* Contenedor de los enlaces a redes sociales */
+  .social-links {
+    margin-top: 30px;            
+  }
+  
+  /* Estilo para los enlaces a redes sociales */
+  .social-links a {
+    margin: 0 10px;               
+  }
+  
+  /* Estilo para los íconos de redes sociales */
+  .social-icon {
+    width: 30px;                 
+    height: 30px;                  
+  }
+  

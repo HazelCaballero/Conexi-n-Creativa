@@ -1,12 +1,64 @@
 {
   "usersCC": [
     {
-      "id": "64c1",
-      "nameU": "Hazel12345",
+      "nameU": "Hazel123456",
       "emailU": "Hazel12345@gmail.com",
-      "passwordU": "Hazel12345",
-      "phoneU": "83031497"
+      "passwordU": "Hazel123456",
+      "phoneU": "83031497",
+      "id": "64c1"
+    },
+    {
+      "id": "25a4",
+      "nameU": "Pamela12345",
+      "emailU": "Pamela12345@gmail.com",
+      "passwordU": "Pamela12345",
+      "phoneU": "12345678"
     }
   ],
-  "baterings": []
+  "barterings": [
+    {
+      "id": "851d",
+      "nameB": "Pamela12345",
+      "idUserCreate": "25a4",
+      "resourceOffered": "hola",
+      "resourceRequest": "otro",
+      "stateB": "pendiente",
+      "commentsB": [
+        {
+          "userComent": "Pamela12345",
+          "comment": "soy pamela"
+        }
+      ]
+    },
+    {
+      "id": "b211",
+      "nameB": "Hazel123456",
+      "idUserCreate": "64c1",
+      "resourceOffered": "hola",
+      "resourceRequest": "practico",
+      "stateB": "pendiente",
+      "commentsB": [
+        {
+          "userComent": "Hazel123456",
+          "comment": "soy hazel"
+        }
+      ]
+    },
+    {
+      "id": "b126",
+      "nameB": "Hazel123456",
+      "idUserCreate": "64c1",
+      "resourceOffered": "aja",
+      "resourceRequest": "practico",
+      "stateB": "pendiente",
+      "commentsB": [
+        {
+          "userComent": "Hazel123456",
+          "comment": "aja"
+        }
+      ]
+    }
+  ],
+  "productos": [],
+  "comunicados": []
 }

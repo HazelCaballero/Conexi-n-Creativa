@@ -1,11 +1,20 @@
-import React from 'react';// Importamos React para poder trabajar con JSX
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Importamos el enrutador de React Router, para manejar la navegación entre las páginas de la aplicación
+// Importamos React para poder trabajar con JSX
+import React from 'react';
+
+// Importamos el enrutador de React Router, para manejar la navegación entre las páginas de la aplicación
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+
+// Importamos las páginas que utilizaremos en las rutas de la aplicación
 import Comunicate from "../pages/Comunicate";  // Página de contacto
 import Fundadora from "../pages/Fundadora";    // Página de la fundadora
 import Home from "../pages/Home";              // Página de inicio
 import Inicio from "../pages/Inicio";          // Página de inicio de sesión
 import Muro from "../pages/Muro";              // Página del muro
+import Perfil from "../pages/Perfil";          // Página del perfil del usuario
+import AdminTools from '../pages/AdminTools'; // Página de herramientas de administración
 
+// Importamos el componente PrivateRoute que protege las rutas que requieren autenticación
+import PrivateRoute from '../services/PrivateRoute';
 
 function RountigByHazel() {
   return (
@@ -20,6 +29,12 @@ function RountigByHazel() {
           <Route path="/Home" element={<Home />} />             {/* Ruta a la página de inicio */}
           <Route path="/Inicio" element={<Inicio />} />         {/* Ruta a la página de inicio de sesión */}
           <Route path="/Muro" element={<Muro />} />             {/* Ruta a la página del muro */}
+          
+          {/* Ruta a la página de perfil, está protegida por PrivateRoute */}
+          <Route path="/Perfil" element={<PrivateRoute><Perfil /></PrivateRoute>} />  {/* Ruta protegida */}
+          
+          {/* Ruta a la página de herramientas de administración, también protegida */}
+          <Route path="/Admin" element={<PrivateRoute><AdminTools /></PrivateRoute>} /> {/* Ruta protegida */}
         </Routes>
       </Router>
     </div>

@@ -1,0 +1,33 @@
+/* Configura la cuadrícula (Grid) general para el diseño de la página */
+.fundadora-grid {
+    display: grid;                          /* Utiliza el sistema de Grid Layout para organizar los elementos */
+    grid-template-rows: auto 1fr auto;      /* Tres filas: la primera fila (Header), la segunda fila (Aside + FoundressByHazelCC), la tercera fila (Footer) */
+    grid-template-columns: 1fr 3fr;         /* Dos columnas: la primera columna (Aside), la segunda columna (FoundressByHazelCC) */
+    grid-template-areas: 
+      "header header"                       /* El header ocupa toda la primera fila (ambas columnas) */
+      "aside foundress"                     /* El aside ocupa la primera columna y FoundressByHazelCC ocupa la segunda columna en la segunda fila */
+      "footer footer";                      /* El footer ocupa toda la tercera fila (ambas columnas) */
+    gap: 20px;                              /* Establece un espacio de 20px entre los elementos dentro de la cuadrícula */
+    padding: 20px;                          /* Añade un espaciado interno de 20px alrededor de todo el contenedor */
+  }
+  
+  /* Estilo para el contenedor del Header */
+  .header {
+    grid-area: header;                     /* Asigna este contenedor al área "header" definida en la cuadrícula */
+  }
+  
+  /* Estilo para el contenedor del Aside */
+  .aside {
+    grid-area: aside;                      /* Asigna este contenedor al área "aside" definida en la cuadrícula */
+  }
+  
+  /* Estilo para el contenedor FoundressByHazelCC */
+  .foundress {
+    grid-area: foundress;                  /* Asigna este contenedor al área "foundress" definida en la cuadrícula */
+  }
+  
+  /* Estilo para el contenedor del Footer */
+  .footer {
+    grid-area: footer;                     /* Asigna este contenedor al área "footer" definida en la cuadrícula */
+  }
+  
