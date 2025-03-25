@@ -1,3 +1,4 @@
+//debo terminar de comentar
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -11,13 +12,13 @@ function SignByHazelCC() {
   const [usersSign, setUsersSign] = useState([]);
   const navigate = useNavigate();
 
- 
+  // Llamada a la API para obtener usuarios
   useEffect(() => {
     async function fetchDataUsers() {
       try {
-        const datos = await CallsUsersCC.GetUsersCC(); 
+        const datos = await CallsUsersCC.GetUsersCC(); // Aquí se obtiene la lista de usuarios
         if (Array.isArray(datos)) {
-          setUsersSign(datos);
+          setUsersSign(datos); // Se guarda la lista de usuarios
         } else {
           console.error("Error: los datos no son un arreglo:", datos);
         }
@@ -33,7 +34,7 @@ function SignByHazelCC() {
     fetchDataUsers();
   }, []);
 
- 
+  // Función para autenticar al usuario
   function authenticate() {
     if (!userNameSign || !passwordUserSign) {
       Swal.fire({
@@ -44,7 +45,7 @@ function SignByHazelCC() {
       return;
     }
 
-  
+    // Buscar el usuario que coincide con el nombre de usuario y contraseña
     const found = usersSign.find(
       (usuario) =>
         usuario.nameU?.trim().toLowerCase() === userNameSign.trim().toLowerCase() &&
@@ -58,9 +59,11 @@ function SignByHazelCC() {
         text: "Usuario o contraseña incorrectos. Inténtalo nuevamente."
       });
     } else {
-     
-      localStorage.setItem("idUsuerSign", found.id);
-      localStorage.setItem("nameUserSign", found.nameU);
+      // Si el usuario se encuentra, guardamos los datos en localStorage
+      localStorage.setItem("idUserSign", found.id);
+      localStorage.setItem("nameUserSign", found.nameU); // Guardamos el nombre del usuario en localStorage
+
+      // Mensaje de bienvenida y redirección
       Swal.fire({
         icon: "success",
         title: "¡Bienvenido!",
@@ -69,7 +72,7 @@ function SignByHazelCC() {
         timerProgressBar: true,
         showConfirmButton: false
       }).then(() => {
-      
+        // Redirigir al usuario al inicio o a la página deseada
         navigate("/Muro"); 
       });
     }

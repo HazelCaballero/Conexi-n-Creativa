@@ -1,0 +1,31 @@
+/* Contenedor del header */
+header {
+    display: flex;  /* Usa flexbox para organizar los elementos */
+    align-items: center;  /* Alinea verticalmente los elementos */
+    justify-content: space-between;  /* Espacio entre el logo y el menú */
+  }
+  
+  /* Logo */
+  .small-image {
+    width: 100px;  /* Ajusta el tamaño del logo */
+    height: auto;  /* Mantiene la relación de aspecto */
+  }
+  
+  /* Contenedor de la lista de navegación */
+  nav ul {
+    display: flex;  /* Organiza los elementos de la lista en fila */
+    list-style: none;  /* Elimina los puntos de la lista */
+    margin: 0;  /* Elimina el margen por defecto */
+    padding: 0;  /* Elimina el padding por defecto */
+  }
+  
+  /* Elementos de la lista */
+  nav ul li {
+    margin-left: 20px;  /* Espacio entre los elementos de la lista */
+    cursor: pointer;  /* Cambia el cursor cuando se pasa sobre los elementos */
+  }
+  
+  nav ul li:first-child {
+    margin-left: 0;  /* Elimina el margen izquierdo del primer item */
+  }
+  

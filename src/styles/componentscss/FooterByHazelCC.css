@@ -1,0 +1,31 @@
+/* Estilo para el pie de página (footer) general */
+footer {
+    display: grid;                /* Usamos Grid en lugar de Flexbox para tener un control más preciso del diseño */
+    grid-template-columns: repeat(3, 1fr);  /* Definimos tres columnas de tamaño igual (1fr significa una fracción del espacio disponible) */
+    gap: 20px;                    /* Espacio entre las columnas y las filas (si hay más) */
+    padding: 20px;                /* Espacio interno de 20px alrededor del pie de página */
+    background-color: #f8f8f8;    /* Fondo de color gris claro (#f8f8f8) para el pie de página */
+  }
+  
+  /* Estilo para los elementos dentro del pie de página */
+  .footer-item {
+    text-align: center;           /* Centra el contenido de cada columna dentro del grid */
+  }
+  
+  /* Estilo para los botones dentro del pie de página */
+  footer button {
+    padding: 10px 20px;           /* Espacio interno dentro del botón (10px arriba/abajo, 20px a los lados) */
+    background-color: #000000;    /* Fondo del botón en color negro */
+    color: white;                 /* Texto del botón en color blanco */
+    border: none;                 /* Eliminamos los bordes predeterminados del botón */
+    cursor: pointer;             /* Cambiamos el cursor a un puntero al pasar por encima del botón */
+    font-size: 16px;              /* Establecemos el tamaño de la fuente del texto dentro del botón */
+    width: 100%;                  /* El botón ocupa todo el ancho disponible de la columna dentro del grid */
+  }
+  
+  /* Estilo para cuando el cursor pasa sobre el botón (hover) */
+  footer button:hover {
+    background-color: #444444;  /* Cambia el fondo a un gris más oscuro cuando el usuario pasa el cursor por encima */
+    transition: background-color 0.3s ease;  /* Transición suave del color de fondo en 0.3 segundos */
+  }
+  
