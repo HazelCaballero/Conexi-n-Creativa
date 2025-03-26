@@ -67,12 +67,12 @@ function SignByHazelCC() {
       Swal.fire({
         icon: "success",
         title: "¡Bienvenido!",
-        text: `Hola, ${userNameSign}. Redirigiéndote al inicio...`,
-        timer: 2000,
+        text: `Hola, ${userNameSign}. Redirigiéndote al Muro...`,
+        timer: 1500,
         timerProgressBar: true,
         showConfirmButton: false
       }).then(() => {
-        // Redirigir al usuario al inicio o a la página deseada
+        // Redirigir al usuario al Muro o a la página deseada
         navigate("/Muro"); 
       });
     }

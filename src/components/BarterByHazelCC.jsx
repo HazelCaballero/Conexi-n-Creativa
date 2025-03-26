@@ -35,20 +35,48 @@ function BarterByHazelCC() {
 
       // Si existen trueques guardados, los cargamos desde el localStorage
       if (storedBarterings) {
-        setBarterings(JSON.parse(storedBarterings));
+        const parsedBarterings = JSON.parse(storedBarterings);
+        setBarterings(parsedBarterings); // Establecemos los trueques obtenidos
         setLoading(false); // Terminamos la carga
-      } else {
+
+        // Verificamos si faltan trueques y si es así, hacemos la llamada a la API para obtener los faltantes
         try {
-          // Si no hay trueques en el localStorage, hacemos una solicitud a la API
+          const data = await CallsBarteringsCC.GetBarterings();
+          if (data && data.barterings) {
+            const missingBarterings = data.barterings.filter(
+              (apiBartering) => !parsedBarterings.some((storedBartering) => storedBartering.id === apiBartering.id)
+            );
+
+            // Si faltan trueques, los agregamos
+            if (missingBarterings.length > 0) {
+              const updatedBarterings = [...parsedBarterings, ...missingBarterings];
+              setBarterings(updatedBarterings);
+              localStorage.setItem("barterings", JSON.stringify(updatedBarterings)); // Actualizamos el localStorage
+            }
+          }
+        } catch (error) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema al intentar cargar los trueques. Intenta nuevamente más tarde.',
+          });
+        }
+      } else {
+        console.log("entra");
+        // Si no hay trueques en el localStorage, hacemos una solicitud a la API
+        try {
           const data = await CallsBarteringsCC.GetBarterings(); // Llamamos a la API para obtener los trueques
+          setBarterings(data)
+          console.log(data);
+          
           if (data && data.barterings && data.barterings.length > 0) {
-            setBarterings(data.barterings); // Establecemos los trueques obtenidos
+            setBarterings(data); // Establecemos los trueques obtenidos
             localStorage.setItem("barterings", JSON.stringify(data.barterings)); // Guardamos los trueques en el localStorage
           } else {
             Swal.fire({
               icon: 'info',
-              title: 'Sin trueques',
-              text: 'No hay trueques disponibles en este momento.',
+              title: 'Trueques',
+              text: 'Trueques disponibles en este momento.',
             });
           }
         } catch (error) {

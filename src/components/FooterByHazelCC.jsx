@@ -27,7 +27,7 @@ function FooterByHazelCC() {
         
         {/* Contenedor para el botón "Recursos utilizados" que aún no tiene una ruta asociada */}
         <div className="footer-item">
-          <button onClick={navigateToRecursos}>Recursos utilizados</button>  {/* Al hacer clic, navega a la página de recursos (asegurarse que la ruta exista) */}
+        <p> Recursos utilizados </p> 
         </div>
       </footer>
     </div>
