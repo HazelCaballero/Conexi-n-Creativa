@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Importamos el enrutador de React Router, para manejar la navegación entre las páginas de la aplicación
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"; 
 
 // Importamos las páginas que utilizaremos en las rutas de la aplicación
 import Comunicate from "../pages/Comunicate";  // Página de contacto
@@ -23,6 +23,8 @@ function RountigByHazel() {
       <Router>
         {/* Las Routes son las rutas que definen qué página se debe mostrar según la URL */}
         <Routes>
+          {/* Redirect from "/" to "/Home" */}
+          <Route path="/" element={<Navigate to="/Home" replace />} />
           {/* Cada Route define una URL y el componente que se renderiza cuando esa URL es visitada */}
           <Route path="/Comunicate" element={<Comunicate />} /> {/* Ruta a la página de contacto */}
           <Route path="/Fundadora" element={<Fundadora />} />   {/* Ruta a la página de la fundadora */}

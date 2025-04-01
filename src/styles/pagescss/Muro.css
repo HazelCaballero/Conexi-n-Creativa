@@ -1,0 +1,28 @@
+.muro-grid {
+  display: grid;                         /* Utiliza Grid Layout */
+  grid-template-rows: auto 1fr auto;     /* Tres filas: header, contenido principal, footer */
+  grid-template-columns: 300px 1fr;      /* Dos columnas: aside y main */
+  grid-template-areas: 
+    "header header"                      /* El header ocupa toda la primera fila */
+    "aside main"                         /* El aside ocupa la primera columna y el main la segunda */
+    "footer footer";                     /* El footer ocupa toda la tercera fila */
+  gap: 0;                                /* Sin espacio entre las áreas */
+  height: 100vh;                         /* Altura completa de la ventana */
+}
+
+.header {
+  grid-area: header;                     /* Asigna al área "header" */
+}
+
+.aside {
+  grid-area: aside;                      /* Asigna al área "aside" */
+}
+
+.main {
+  grid-area: main;                       /* Asigna al área "main" */
+  overflow-y: auto;                      /* Habilita scroll si el contenido excede */
+}
+
+.footer {
+  grid-area: footer;                     /* Asigna al área "footer" */
+}

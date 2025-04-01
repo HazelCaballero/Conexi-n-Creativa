@@ -1,0 +1,83 @@
+.home-grid {
+    display: grid;                         /* Utiliza Grid Layout para definir el diseño de la página */
+    grid-template-rows: auto 1fr auto;     /* Tres filas: header, contenido principal, footer */
+    grid-template-columns: 250px 1fr;      /* Dos columnas: aside (250px) y main (resto del espacio) */
+    grid-template-areas: 
+      "header header"                      /* El header ocupa toda la primera fila */
+      "aside main"                         /* El aside ocupa la primera columna y el main la segunda */
+      "footer footer";                     /* El footer ocupa toda la tercera fila */
+    gap: 0;                                /* Sin espacio entre las áreas */
+    width: 100%;
+    height: 100vh;                         /* Asegura que la altura ocupe toda la ventana */
+    overflow: hidden;                      /* Evita que los elementos se desborden */
+}
+
+.header {
+    grid-area: header;                     /* Asigna este contenedor al área "header" */
+}
+
+.aside {
+    grid-area: aside;                      /* Asigna este contenedor al área "aside" */
+}
+
+.main {
+    grid-area: main;                       /* Asigna este contenedor al área "main" */
+}
+
+.footer {
+    grid-area: footer;                     /* Asigna este contenedor al área "footer" */
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-content {
+  display: flex;
+  gap: 20px;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex: 1;
+}
+
+.home-container {
+  flex: 2; /* HomeByHazelCC takes more space */
+}
+
+.seccion-destacada {
+  flex: 1; /* SeccionDestacada takes less space */
+  max-height: 400px; /* Set a maximum height for the section */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Add padding to avoid content being cut off by the scrollbar */
+  scrollbar-width: thin; /* For modern browsers, make the scrollbar thinner */
+}
+
+.seccion-destacada::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar for WebKit browsers */
+}
+
+.seccion-destacada::-webkit-scrollbar-thumb {
+  background-color: rgb(44, 84, 131); /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+}
+
+.seccion-destacada::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Background color of the scrollbar track */
+}
+
+.interested-count {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgb(44, 84, 131);
+}
+
+.interest-toggle {
+  display: block;
+  margin-top: 10px;
+}

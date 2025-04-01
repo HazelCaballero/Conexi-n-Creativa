@@ -17,7 +17,7 @@ function AsideByHazelCC() {
       <aside> {/* Etiqueta 'aside' que se usa para definir contenido adicional, en este caso, la barra lateral */}
         <ul className="aside-list"> {/* Lista desordenada (ul) que contiene los enlaces de navegación */}
           {/* Cada 'li' es un ítem dentro de la lista que representa un enlace a una ruta específica */}
-          <li onClick={() => handleNavigation('/Muro')}>Muro de trueques</li> 
+          <li onClick={() => handleNavigation('/Muro')}>Muro</li> 
           {/* Este 'li' representa un enlace a la página del Muro de Trueques. Al hacer clic en este ítem, se ejecuta 'handleNavigation' con la ruta '/Muro'. */}
           <li onClick={() => handleNavigation('/Fundadora')}>Fundadora</li> 
           {/* Este 'li' representa un enlace a la página 'Fundadora'. Se ejecuta 'handleNavigation' con la ruta '/Fundadora'. */}

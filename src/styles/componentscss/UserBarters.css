@@ -1,0 +1,59 @@
+.user-barters-container {
+  padding: 1rem;
+  background-color: rgb(245, 254, 237); /* Fondo claro */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+  margin: 0 auto; /* Centrar horizontalmente */
+  height: 450px; /* Limitar la altura máxima */
+  overflow-y: scroll; /* Habilitar scroll vertical */
+  overflow-x: hidden; /* Evita el scroll horizontal */
+  position: relative;
+  top: 15px;
+  width: 400px;
+}
+
+.user-barters-container h3 {
+  color: rgb(44, 84, 131); /* Color del texto */
+  font-size: 1.8rem; /* Tamaño de fuente */
+  margin-bottom: 15px; /* Espaciado inferior */
+  text-align: center; /* Centrado */
+  background-color: rgb(230, 245, 251); /* Fondo claro */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.barters-list {
+  display: flex;
+  flex-direction: column; /* Alinea los trueques en una columna */
+  gap: 1rem; /* Espaciado entre los trueques */
+}
+
+.barter-item {
+  padding: 1rem; /* Espaciado interno */
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: white; /* Fondo blanco */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  width: 100%; /* Asegura que no exceda el ancho del contenedor */
+}
+
+.barter-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.barter-item h4 {
+  font-size: 1.1rem; /* Tamaño de fuente */
+  color: rgb(44, 84, 131); /* Color del texto */
+  margin-bottom: 0.5rem; /* Espaciado inferior */
+}
+
+.barter-item p {
+  font-size: 0.95rem; /* Tamaño de fuente */
+  color: #555; /* Color del texto */
+  margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+.barter-item strong {
+  color: rgb(44, 84, 131); /* Color destacado */
+}

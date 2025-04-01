@@ -1,46 +1,33 @@
 /* Establece el grid general para la página */
 .admin-tools-grid {
     display: grid;                         /* Utiliza Grid Layout para definir el diseño de la página */
-    grid-template-rows: auto 1fr auto;     /* Tres filas: la primera fila (Header), la segunda (Aside + Agregar Producto), la tercera (Footer) */
-    grid-template-columns: 1fr 3fr;        /* Dos columnas: la primera columna (Aside), la segunda columna (AgregarProducto) */
+    grid-template-rows: auto 1fr auto;     /* Tres filas: header, contenido principal, footer */
+    grid-template-columns: 250px 1fr;      /* Dos columnas: aside (250px) y main (resto del espacio) */
     grid-template-areas: 
-      "header header"                      /* El header ocupa toda la primera fila (dos columnas) */
-      "aside agregar"                      /* El aside ocupa la primera columna y el AgregarProducto ocupa la segunda columna en la segunda fila */
-      "footer footer";                     /* El footer ocupa toda la tercera fila (dos columnas) */
-    gap: 20px;                             /* Establece un espacio de 20px entre los elementos del grid */
-    padding: 20px;                         /* Añade un espaciado interno de 20px alrededor de todo el contenedor */
-  }
-  
-  /* Estilos para los contenedores del Header, Aside y Footer */
-  
-  /* Estilo para el contenedor del Header */
-  .header-container {
-    grid-area: header;                    /* Asigna este contenedor al área "header" definida en el grid */
-    background-color: #4CAF50;            /* Color de fondo verde para el header */
-    text-align: center;                   /* Centra el texto dentro del header */
-    padding: 10px;                        /* Agrega un espaciado interno de 10px al header */
-  }
-  
-  /* Estilo para el contenedor del Aside */
-  .aside-container {
-    grid-area: aside;                     /* Asigna este contenedor al área "aside" definida en el grid */
-    background-color: #f4f4f4;            /* Color de fondo gris claro para el aside */
-    padding: 15px;                        /* Agrega un espaciado interno de 15px al aside */
-  }
-  
-  /* Estilo para el contenedor de Agregar Producto */
-  .agregar {
-    grid-area: agregar;                   /* Asigna este contenedor al área "agregar" definida en el grid */
-    padding: 20px;                        /* Agrega un espaciado interno de 20px para el contenedor de Agregar Producto */
-    border: 1px solid #ddd;               /* Añade un borde gris claro alrededor del contenedor de Agregar Producto */
-  }
-  
-  /* Estilo para el contenedor del Footer */
-  .footer-container {
-    grid-area: footer;                    /* Asigna este contenedor al área "footer" definida en el grid */
-    background-color: #333;               /* Color de fondo oscuro para el footer */
-    color: white;                         /* Color del texto en blanco para el footer */
-    text-align: center;                   /* Centra el texto dentro del footer */
-    padding: 15px;                        /* Agrega un espaciado interno de 15px al footer */
-  }
-  
+      "header header"                      /* El header ocupa toda la primera fila */
+      "aside agregar"                      /* El aside ocupa la primera columna y el main la segunda */
+      "footer footer";                     /* El footer ocupa toda la tercera fila */
+    width: 100%;
+    height: 100vh;                         /* Asegura que la altura ocupe toda la ventana */
+    
+}
+
+/* Estilo para el contenedor del Header */
+.header-container {
+    grid-area: header;                     /* Asigna este contenedor al área "header" */
+}
+
+/* Estilo para el contenedor del Aside */
+.aside-container {
+    grid-area: aside;                      /* Asigna este contenedor al área "aside" */
+}
+
+/* Estilo para el contenedor de Agregar Producto */
+.agregar {
+    grid-area: agregar;                    /* Asigna este contenedor al área "main" */
+}
+
+/* Estilo para el contenedor del Footer */
+.footer-container {
+    grid-area: footer;                    /* Asigna este contenedor al área "footer" */
+}

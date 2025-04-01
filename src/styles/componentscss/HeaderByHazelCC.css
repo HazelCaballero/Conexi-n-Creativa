@@ -1,31 +1,46 @@
+.sriracha-regular {
+    font-family: "Sriracha", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
 /* Contenedor del header */
 header {
     display: flex;  /* Usa flexbox para organizar los elementos */
     align-items: center;  /* Alinea verticalmente los elementos */
     justify-content: space-between;  /* Espacio entre el logo y el menú */
-  }
+    background-color: rgb(245,254,237);
+    color: rgb(44,84,131);  /* Color del texto */
+    text-align: center;  /* Centra el texto dentro del header */
+    padding: 10px 20px;  /* Add consistent padding */
   
-  /* Logo */
-  .small-image {
-    width: 100px;  /* Ajusta el tamaño del logo */
+    height: 10vh;  /* Altura del header */
+}
+
+/* Logo */
+.small-image {
+    width: 160px;  /* Ajusta el tamaño del logo */
     height: auto;  /* Mantiene la relación de aspecto */
-  }
-  
-  /* Contenedor de la lista de navegación */
-  nav ul {
+    position: relative;
+    left: 3vh;
+}
+
+/* Contenedor de la lista de navegación */
+nav ul {
     display: flex;  /* Organiza los elementos de la lista en fila */
     list-style: none;  /* Elimina los puntos de la lista */
-    margin: 0;  /* Elimina el margen por defecto */
-    padding: 0;  /* Elimina el padding por defecto */
-  }
-  
-  /* Elementos de la lista */
-  nav ul li {
-    margin-left: 20px;  /* Espacio entre los elementos de la lista */
+    font-family: "Sriracha", cursive;
+    font-size: 4vh;
+}
+
+nav ul li:hover {
+    color: rgb(245,254,237);  /* Cambia el color de fondo al pasar el cursor */
+    background-color: rgb(44,84,131);
+    transition: color 0.3s ease;  /* Transición suave del color en 0.3 segundos */}
+
+/* Elementos de la lista */
+nav ul li {
+    margin-left: 10dvh;  /* Espacio entre los elementos de la lista */
     cursor: pointer;  /* Cambia el cursor cuando se pasa sobre los elementos */
-  }
-  
-  nav ul li:first-child {
-    margin-left: 0;  /* Elimina el margen izquierdo del primer item */
-  }
-  
+}

@@ -1,0 +1,138 @@
+/* Contenedor principal del Wall de Trueques */
+.barter-list {
+    display: flex;
+    flex-direction: column; /* Alinea los trueques en una columna */
+    gap: 1rem; /* Espaciado entre los trueques */
+    padding: 1rem; /* Espaciado interno */
+    background-color: rgb(245, 254, 237); /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    margin: 0 auto; /* Centrar horizontalmente */
+    max-height: 400px; /* Limitar la altura máxima */
+    overflow-y: scroll; /* Habilitar scroll vertical */
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    word-wrap: break-word; /* Asegura que el contenido se ajuste al ancho */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    width: 100%; /* Asegura que ocupe todo el ancho de su contenedor */
+    max-width: 100%; /* Evita que exceda el ancho del contenedor */
+}
+
+/* Estilo para cada trueque */
+.barter-item {
+    padding: 1rem; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: white; /* Fondo blanco */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: 100%; /* Asegura que no exceda el ancho del contenedor */
+}
+
+/* Título del trueque */
+.barter-item h3 {
+    font-size: 1.1rem; /* Tamaño de fuente */
+    color: rgb(44, 84, 131); /* Color del texto */
+    margin-bottom: 0.5rem; /* Espaciado inferior */
+}
+
+/* Comentarios del trueque */
+.barter-item p {
+    font-size: 0.95rem; /* Tamaño de fuente */
+    color: #555; /* Color del texto */
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+/* Botones de acción */
+.barter-item button {
+    padding: 0.4rem 0.8rem; /* Espaciado interno */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    border: none; /* Sin bordes */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Botón de editar */
+.barter-item button:first-of-type {
+    background-color: rgb(44, 84, 131); /* Fondo azul */
+    color: white; /* Texto blanco */
+    margin-right: 0.5rem; /* Espaciado derecho */
+}
+
+/* Botón de eliminar */
+.barter-item button:last-of-type {
+    background-color: rgb(193, 239, 186); /* Fondo rojo claro */
+    color: white; /* Texto blanco */
+}
+
+/* Hover para los botones */
+.barter-item button:hover {
+    opacity: 0.9; /* Ligera transparencia al pasar el cursor */
+}
+
+.barter-container {
+  display: flex; /* Use flexbox to align the sections side by side */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  gap: 20px; /* Add spacing between the sections */
+  padding: 20px;
+  width: 1000px;
+}
+
+
+.section-title {
+  color: rgb(44, 84, 131);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: rgb(230,245,251);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Button styles for adding comments */
+.add-comment-button {
+  margin-top: 10px;
+  background-color: rgb(44, 84, 131);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.add-comment-button:hover {
+  opacity: 0.9;
+}
+
+/* Button styles for editing */
+.edit-button {
+  margin-top: 10px;
+  background-color: rgb(239, 186, 190);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.edit-button:hover {
+  opacity: 0.9;
+}
+
+/* Button styles for deleting */
+.delete-button {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.delete-button:hover {
+  opacity: 0.9;
+}

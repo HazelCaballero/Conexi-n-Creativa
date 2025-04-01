@@ -1,0 +1,70 @@
+.agregar-producto-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 150vh;
+    height: 70vh;
+    background-color: rgb(245,254,237);
+    overflow-y: scroll;
+    position: relative;
+    top: 1vh;
+}
+
+.agregar-producto-container h2 {
+    color: rgb(44, 84, 131);
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.agregar-producto-container button {
+    background-color: rgb(44, 84, 131);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.agregar-producto-container button:hover {
+    background-color: rgb(30, 60, 100);
+}
+
+.agregar-producto-container ul {
+    list-style: none;
+}
+
+.agregar-producto-container li {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.agregar-producto-container li span {
+    font-size: 1rem;
+    color: rgb(44, 84, 131);
+}
+
+.agregar-producto-container li button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+.agregar-producto-container li button:first-child {
+    background-color: rgb(44, 84, 131);
+    color: white;
+}
+
+.agregar-producto-container li button:last-child {
+    background-color: red;
+    color: white;
+}

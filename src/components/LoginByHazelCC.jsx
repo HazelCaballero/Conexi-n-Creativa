@@ -65,11 +65,20 @@ function LoginByHazelCC() {
             // Llamamos a la API para registrar al usuario
             const response = await CallsUsersCC.PostUsersCC(nameUser, emailUser, passwordUser, phoneUser);
 
-            // Si la llamada a la API es exitosa, mostramos un mensaje de éxito
+            // Automatically log in the user after successful registration
+            localStorage.setItem("idUserSign", response.id);
+            localStorage.setItem("nameUserSign", response.nameU);
+
             Swal.fire({
                 icon: "success",
                 title: "Registro exitoso",
-                text: "El usuario ha sido registrado correctamente.",  // Mensaje de éxito
+                text: "El usuario ha sido registrado correctamente. Iniciando sesión...",
+                timer: 1500,
+                timerProgressBar: true,
+                showConfirmButton: false,
+            }).then(() => {
+                // Redirect to the desired page after login
+                window.location.href = "/Muro";
             });
 
             // Limpiamos los campos del formulario después de un registro exitoso

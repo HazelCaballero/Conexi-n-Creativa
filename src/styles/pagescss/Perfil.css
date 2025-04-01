@@ -1,0 +1,64 @@
+.perfil-grid {
+    display: grid;                         /* Utiliza Grid Layout para definir el diseño de la página */
+    grid-template-rows: auto 1fr auto;     /* Tres filas: header, contenido principal, footer */
+    grid-template-columns: 300px 1fr;      /* Incrementa el ancho del aside a 300px */
+    grid-template-areas: 
+      "header header"                      /* El header ocupa toda la primera fila */
+      "aside main"                         /* El aside ocupa la primera columna y el main la segunda */
+      "footer footer";                     /* El footer ocupa toda la tercera fila */
+    gap: 0;                                /* Sin espacio entre las áreas */
+    width: 100%;
+    height: 100vh;                         /* Asegura que la altura ocupe toda la ventana */
+    overflow: hidden;                      /* Evita que los elementos se desborden */
+}
+
+.header {
+    grid-area: header;                     /* Asigna este contenedor al área "header" */
+}
+
+.aside {
+    grid-area: aside;                      /* Asigna este contenedor al área "aside" */
+}
+
+.main {
+    grid-area: main;                       /* Asigna este contenedor al área "main" */
+    overflow-y: auto;                      /* Habilita el scroll si el contenido excede el tamaño */
+}
+
+.footer {
+    grid-area: footer;                     /* Asigna este contenedor al área "footer" */
+}
+
+.perfil-page {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-light); /* Fondo claro consistente */
+  color: var(--text-color); /* Color de texto consistente */
+}
+
+.perfil-content {
+  display: flex;
+  gap: 20px;
+  padding: 1rem;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alineamos los elementos al inicio */
+  gap: 1rem;
+}
+
+.profile-section {
+  display: flex;
+  flex-wrap: nowrap; /* Evitamos que los elementos se ajusten */
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.profile-section > * {
+  flex: 1;
+  min-width: 300px; /* Aseguramos un tamaño mínimo para los elementos */
+  max-width: 600px; /* Limitamos el tamaño máximo */
+}

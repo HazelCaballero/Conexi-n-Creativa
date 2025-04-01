@@ -1,0 +1,164 @@
+.seccion-destacada {
+    padding: 20px;
+    background-color: rgb(245, 254, 237);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 500px; /* Adjusted height to fit up to 3 products */
+    overflow-y: auto; /* Ensure scrolling remains enabled */
+}
+
+/* General container styling */
+.seccion-destacada-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 90%;
+}
+
+/* Title styling */
+.seccion-destacada-title {
+  color: rgb(44, 84, 131);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* List container */
+.destacados-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual item styling */
+.destacado-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destacado-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title of each item */
+.destacado-title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Description of each item */
+.destacado-description {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.contenedor-productos {
+  display: flex;
+  flex-direction: column; /* Display products vertically */
+  gap: 20px; /* Add spacing between products */
+  align-items: center; /* Center products horizontally */
+}
+
+.producto {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.producto h3 {
+  font-size: 1.2rem;
+  color: rgb(44, 84, 131);
+  margin: 10px 0;
+}
+
+.producto p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.producto .precio {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(44, 84, 131);
+}
+
+.producto label {
+  font-size: 1rem;
+  color: rgb(44, 84, 131);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.producto input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.producto-card {
+  background-color: #f0f8ff; /* Light blue background for differentiation */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 90%; /* Adjust width to fit the container */
+  max-width: 400px; /* Limit maximum width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.producto-imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.producto-nombre {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c5483;
+  margin-bottom: 8px;
+}
+
+.producto-descripcion {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.producto-precio {
+  font-size: 16px;
+  font-weight: bold;
+  color: #27ae60;
+  margin-bottom: 10px;
+}
+
+.producto-interesadas {
+  font-size: 14px;
+  color: #888;
+}

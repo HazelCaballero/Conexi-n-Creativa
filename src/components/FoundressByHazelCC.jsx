@@ -34,7 +34,7 @@ function FoundressByHazelCC() {
       </p>
 
       {/* Sección con el botón de llamada a la acción */}
-      <div className="cta-container">
+      <div>
         <button onClick={handleJoinCommunity} className="cta-button">
           ¡Únete a la comunidad! 
         </button>

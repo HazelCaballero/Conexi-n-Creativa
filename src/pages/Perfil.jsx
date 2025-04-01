@@ -1,35 +1,27 @@
-// Importamos React para poder usar JSX en este componente
-import React from 'react'
+import React from 'react';
+import '../styles/pagescss/Perfil.css'; // Importamos los estilos específicos para la página Perfil
+import HeaderByHazelCC from '../components/HeaderByHazelCC';
+import AsideByHazelCC from '../components/AsideByHazelCC';
+import FooterByHazelCC from '../components/FooterByHazelCC';
+import ProfileByHazelCC from '../components/ProfileByHazelCC';
+import UserBarters from '../components/UserBarters'; // Importamos el nuevo componente
 
-// Importamos el archivo de estilos específico para la página Perfil
-import '../styles/pagescss/Perfil.css'
-
-// Importamos los componentes que se utilizarán en la página de perfil
-import ProfileByHazelCC from '../components/ProfileByHazelCC';  // Componente que muestra el perfil del usuario
-import HeaderByHazelCC from '../components/HeaderByHazelCC';  // Componente que representa la cabecera de la página
-import AsideByHazelCC from '../components/AsideByHazelCC';  // Componente que representa la barra lateral
-import FooterByHazelCC from '../components/FooterByHazelCC';  // Componente que representa el pie de página
-
-// Definimos el componente Perfil, que organiza la estructura de la página de perfil del usuario
 function Perfil() {
   return (
-    <div> {/* Contenedor principal de la página Perfil */}
-      
-      {/* Insertamos el componente de cabecera */}
-      <HeaderByHazelCC /> <br /> 
-      
-      {/* Insertamos el componente que representa el perfil del usuario */}
-      <ProfileByHazelCC /> <br /> 
-      
-      {/* Insertamos el componente de la barra lateral */}
-      <AsideByHazelCC /> <br />
-      
-      {/* Insertamos el componente de pie de página */}
-      <FooterByHazelCC />
-      
+    <div className="perfil-page"> {/* Contenedor principal de la página Perfil */}
+      <HeaderByHazelCC /> {/* Cabecera */}
+      <div className="perfil-content">
+        <AsideByHazelCC /> {/* Barra lateral */}
+        <div className="main-content">
+          <div className="profile-section"> {/* Contenedor para diseño de dos columnas */}
+            <ProfileByHazelCC /> {/* Contenido principal del perfil */}
+            <UserBarters /> {/* Contenido de los trueques del usuario */}
+          </div>
+        </div>
+      </div>
+      <FooterByHazelCC /> {/* Pie de página */}
     </div>
-  )
+  );
 }
 
-// Exportamos el componente para que pueda ser utilizado en otras partes de la aplicación
 export default Perfil;

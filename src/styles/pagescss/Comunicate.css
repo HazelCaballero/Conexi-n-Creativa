@@ -1,0 +1,44 @@
+.comunicate-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: rgb(245, 254, 237); /* Fondo consistente con otros estilos */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.comunicate-header,
+.comunicate-aside,
+.comunicate-main,
+.comunicate-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.comunicate-header {
+    margin-bottom: 20px;
+}
+
+.comunicate-aside {
+    margin-bottom: 20px;
+}
+
+.comunicate-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgb(230, 245, 251); /* Fondo diferenciado para el contenido principal */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comunicate-footer {
+    margin-top: 20px;
+    text-align: center;
+}

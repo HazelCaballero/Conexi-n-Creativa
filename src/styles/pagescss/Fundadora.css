@@ -1,33 +1,39 @@
 /* Configura la cuadrícula (Grid) general para el diseño de la página */
 .fundadora-grid {
-    display: grid;                          /* Utiliza el sistema de Grid Layout para organizar los elementos */
-    grid-template-rows: auto 1fr auto;      /* Tres filas: la primera fila (Header), la segunda fila (Aside + FoundressByHazelCC), la tercera fila (Footer) */
-    grid-template-columns: 1fr 3fr;         /* Dos columnas: la primera columna (Aside), la segunda columna (FoundressByHazelCC) */
+    display: grid;                         /* Utiliza Grid Layout para definir el diseño de la página */
+    grid-template-rows: auto 1fr auto;     /* Tres filas: header, contenido principal, footer */
+    grid-template-columns: 250px 1fr;      /* Dos columnas: aside (250px) y main (resto del espacio) */
     grid-template-areas: 
-      "header header"                       /* El header ocupa toda la primera fila (ambas columnas) */
-      "aside foundress"                     /* El aside ocupa la primera columna y FoundressByHazelCC ocupa la segunda columna en la segunda fila */
-      "footer footer";                      /* El footer ocupa toda la tercera fila (ambas columnas) */
-    gap: 20px;                              /* Establece un espacio de 20px entre los elementos dentro de la cuadrícula */
-    padding: 20px;                          /* Añade un espaciado interno de 20px alrededor de todo el contenedor */
-  }
-  
-  /* Estilo para el contenedor del Header */
-  .header {
-    grid-area: header;                     /* Asigna este contenedor al área "header" definida en la cuadrícula */
-  }
-  
-  /* Estilo para el contenedor del Aside */
-  .aside {
-    grid-area: aside;                      /* Asigna este contenedor al área "aside" definida en la cuadrícula */
-  }
-  
-  /* Estilo para el contenedor FoundressByHazelCC */
-  .foundress {
-    grid-area: foundress;                  /* Asigna este contenedor al área "foundress" definida en la cuadrícula */
-  }
-  
-  /* Estilo para el contenedor del Footer */
-  .footer {
-    grid-area: footer;                     /* Asigna este contenedor al área "footer" definida en la cuadrícula */
-  }
-  
+      "header header"                      /* El header ocupa toda la primera fila */
+      "aside foundress"                    /* El aside ocupa la primera columna y el main la segunda */
+      "footer footer";                     /* El footer ocupa toda la tercera fila */
+    gap: 0;                                /* Sin espacio entre las áreas */
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo para el contenedor del Header */
+.header {
+    grid-area: header;                     /* Asigna este contenedor al área "header" */
+}
+
+/* Estilo para el contenedor del Aside */
+.aside {
+    grid-area: aside;                      /* Asigna este contenedor al área "aside" */
+}
+
+/* Estilo para el contenedor FoundressByHazelCC */
+.foundress {
+    grid-area: foundress;                  /* Asigna este contenedor al área "main" */
+    display: flex;                         /* Utiliza Flexbox para centrar el contenido */
+    justify-content: center;               /* Centra horizontalmente */
+    align-items: center;                   /* Centra verticalmente */
+    width: 100%;                           /* Asegura que ocupe todo el ancho disponible */
+    height: 100%;                          /* Asegura que ocupe todo el alto disponible */
+    box-sizing: border-box;                /* Incluye padding y border en el tamaño total */
+}
+
+/* Estilo para el contenedor del Footer */
+.footer {
+    grid-area: footer;                     /* Asigna este contenedor al área "footer" */
+}

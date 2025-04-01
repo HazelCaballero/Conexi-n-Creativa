@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react"; // Importamos React y los ho
 import Swal from "sweetalert2"; // Importamos SweetAlert para mostrar mensajes emergentes
 import CallsBarteringsCC from "../services/CallsBarteringsCC"; // Importamos las funciones para interactuar con la API de trueques
 import BarterCreator from './BarterCreator'; // Componente para crear nuevos trueques
+import "../styles/componentscss/BarterByHazelCC.css"; // Importar los estilos
 
 // Componente principal para mostrar los trueques y permitir su edición y eliminación
 function BarterByHazelCC() {
   // Definimos varios estados que usarán para manejar la información en la interfaz de usuario
   const [barterings, setBarterings] = useState([]); // Lista de trueques
   const [loading, setLoading] = useState(true); // Indicador para saber si los trueques están siendo cargados
-  const [editingBarter, setEditingBarter] = useState(null); // Almacenará el trueque que se está editando
-  const [newResourceOffered, setNewResourceOffered] = useState(""); // Recurso ofrecido al editar
-  const [newResourceRequest, setNewResourceRequest] = useState(""); // Recurso solicitado al editar
-  const [newComments, setNewComments] = useState(""); // Comentarios al editar
 
   // useEffect se ejecuta una vez cuando el componente se monta y cuando las dependencias cambian
   useEffect(() => {
@@ -66,19 +63,8 @@ function BarterByHazelCC() {
         // Si no hay trueques en el localStorage, hacemos una solicitud a la API
         try {
           const data = await CallsBarteringsCC.GetBarterings(); // Llamamos a la API para obtener los trueques
-          setBarterings(data)
-          console.log(data);
-          
-          if (data && data.barterings && data.barterings.length > 0) {
-            setBarterings(data); // Establecemos los trueques obtenidos
-            localStorage.setItem("barterings", JSON.stringify(data.barterings)); // Guardamos los trueques en el localStorage
-          } else {
-            Swal.fire({
-              icon: 'info',
-              title: 'Trueques',
-              text: 'Trueques disponibles en este momento.',
-            });
-          }
+          setBarterings(data);
+          localStorage.setItem("barterings", JSON.stringify(data.barterings)); // Guardamos los trueques en el localStorage
         } catch (error) {
           Swal.fire({
             icon: 'error',
@@ -96,96 +82,203 @@ function BarterByHazelCC() {
 
   // Función para manejar el clic en el botón "Editar" de un trueque
   const handleEditClick = (bartering) => {
-    const currentUserId = localStorage.getItem("idUserSign");
+    Swal.fire({
+      title: 'Editar Trueque',
+      html: `
+        <input id="resourceOffered" class="swal2-input" placeholder="Recurso ofrecido" value="${bartering.resourceOffered || ''}">
+        <select id="resourceRequest" class="swal2-input">
+          <option value="practico" ${bartering.resourceRequest === 'practico' ? 'selected' : ''}>Práctico</option>
+          <option value="teorico" ${bartering.resourceRequest === 'teorico' ? 'selected' : ''}>Teórico</option>
+          <option value="otro" ${bartering.resourceRequest === 'otro' ? 'selected' : ''}>Otro</option>
+        </select>
+        <textarea id="comments" class="swal2-textarea" placeholder="Comentarios">${bartering.commentsB[0]?.comment || ''}</textarea>
+      `,
+      focusConfirm: false,
+      preConfirm: () => {
+        const resourceOffered = document.getElementById('resourceOffered')?.value.trim();
+        const resourceRequest = document.getElementById('resourceRequest')?.value.trim();
+        const comments = document.getElementById('comments')?.value.trim();
 
-    // Verificamos que el trueque haya sido creado por el usuario actual
-    if (bartering.idUserCreate === currentUserId) {
-      setEditingBarter(bartering); // Establecemos el trueque a editar
-      setNewResourceOffered(bartering.resourceOffered); // Establecemos el recurso ofrecido en el formulario de edición
-      setNewResourceRequest(bartering.resourceRequest); // Establecemos el recurso solicitado en el formulario de edición
-      setNewComments(bartering.commentsB ? bartering.commentsB[0].comment : ""); // Establecemos el comentario en el formulario de edición
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Acción no permitida",
-        text: "Solo puedes editar los trueques que hayas creado.",
-      });
-    }
+        // Validación de campos
+        if (!resourceOffered || !resourceRequest || comments === undefined || comments === '') {
+          Swal.showValidationMessage('Por favor, completa todos los campos obligatorios.');
+          return false;
+        }
+
+        return { resourceOffered, resourceRequest, comments };
+      }
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const { resourceOffered, resourceRequest, comments } = result.value;
+
+        // Preparar los datos para la API
+        const updatedBarter = {
+          ...bartering,
+          resourceOffered,
+          resourceRequest,
+          commentsB: [{ userComent: bartering.nameB, comment: comments }],
+        };
+
+        try {
+          // Llamar a la API para actualizar el trueque
+          await CallsBarteringsCC.UpdateBarterings(updatedBarter, bartering.id);
+
+          // Actualizar el estado local
+          setBarterings((prevBarterings) =>
+            prevBarterings.map((b) =>
+              b.id === updatedBarter.id ? updatedBarter : b
+            )
+          );
+
+          Swal.fire('Actualizado', 'El trueque ha sido actualizado con éxito.', 'success');
+        } catch (error) {
+          console.error('Error al actualizar el trueque:', error);
+          Swal.fire('Error', 'Hubo un problema al actualizar el trueque.', 'error');
+        }
+      }
+    });
   };
 
   // Función para eliminar un trueque
   const deleteBarter = async (id) => {
-    const currentUserId = localStorage.getItem("idUserSign");
-    const barteringToDelete = barterings.find((bartering) => bartering.id === id); // Buscamos el trueque por su ID
+    try {
+      // Confirmación antes de eliminar
+      const result = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¡No podrás revertir esta acción!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: '¡Sí, eliminarlo!',
+      });
 
-    // Verificamos que el trueque haya sido creado por el usuario actual
-    if (barteringToDelete.idUserCreate === currentUserId) {
-      try {
-        await CallsBarteringsCC.DeleteBartering(id); // Llamamos a la API para eliminar el trueque
-        const updatedBarterings = barterings.filter((bartering) => bartering.id !== id); // Filtramos el trueque eliminado
-        setBarterings(updatedBarterings); // Actualizamos la lista de trueques
-        localStorage.setItem("barterings", JSON.stringify(updatedBarterings)); // Actualizamos el localStorage
+      if (result.isConfirmed) {
+        // Llamar a la API para eliminar el trueque
+        await CallsBarteringsCC.DeleteBartering(id);
 
-        Swal.fire({
-          icon: "success",
-          title: "Trueque eliminado",
-          text: "El trueque ha sido eliminado correctamente.",
-        });
-      } catch (error) {
-        Swal.fire({
-          icon: "error",
-          title: "Error al eliminar trueque",
-          text: "Hubo un problema al intentar eliminar el trueque. Intenta nuevamente.",
-        });
+        // Actualizar la lista de trueques después de eliminar
+        const updatedBarterings = barterings.filter((bartering) => bartering.id !== id);
+        setBarterings(updatedBarterings);
+        localStorage.setItem('barterings', JSON.stringify(updatedBarterings));
+
+        // Mostrar mensaje de éxito
+        Swal.fire('Eliminado', 'El trueque ha sido eliminado correctamente.', 'success');
       }
-    } else {
+    } catch (error) {
+      // Manejo de errores
+      console.error('Error al eliminar el trueque:', error);
       Swal.fire({
-        icon: "error",
-        title: "Acción no permitida",
-        text: "Solo puedes eliminar los trueques que hayas creado.",
+        icon: 'error',
+        title: 'Error al eliminar trueque',
+        text: 'Hubo un problema al intentar eliminar el trueque. Intenta nuevamente.',
       });
     }
   };
 
-  // Función para actualizar un trueque
-  const handleUpdateBarter = () => {
-    // Creamos un objeto con los datos actualizados del trueque
-    const updatedBarter = {
-      ...editingBarter, // Mantenemos todos los datos del trueque original
-      resourceOffered: newResourceOffered, // Actualizamos el recurso ofrecido
-      resourceRequest: newResourceRequest, // Actualizamos el recurso solicitado
-      commentsB: [{ userComent: editingBarter.nameB, comment: newComments }], // Actualizamos los comentarios
-    };
+  const handleAddComment = async (barteringId) => {
+    try {
+      const { value: comment } = await Swal.fire({
+        title: "Agregar Comentario",
+        input: "textarea",
+        inputPlaceholder: "Escribe tu comentario aquí...",
+        showCancelButton: true,
+        confirmButtonText: "Agregar",
+        cancelButtonText: "Cancelar",
+      });
 
-    // Llamamos a la API para actualizar el trueque
-    CallsBarteringsCC.UpdateBarterings(updatedBarter, editingBarter.id)
-      .then(() => {
-        const updatedBarterings = barterings.map((bartering) =>
-          bartering.id === updatedBarter.id ? updatedBarter : bartering // Actualizamos el trueque en la lista
+      if (comment) {
+        const bartering = barterings.find((b) => b.id === barteringId);
+        if (!bartering) return;
+
+        const updatedComments = [
+          ...bartering.commentsB,
+          { userComent: localStorage.getItem("nameUserSign"), comment },
+        ];
+
+        const updatedBartering = { ...bartering, commentsB: updatedComments };
+
+        await CallsBarteringsCC.UpdateBarterings(updatedBartering, barteringId);
+
+        setBarterings((prevBarterings) =>
+          prevBarterings.map((b) =>
+            b.id === barteringId ? updatedBartering : b
+          )
         );
-        setBarterings(updatedBarterings);
-
-        localStorage.setItem("barterings", JSON.stringify(updatedBarterings)); // Actualizamos el localStorage
-
-        // Limpiamos el estado de edición
-        setEditingBarter(null);
-        setNewResourceOffered("");
-        setNewResourceRequest("");
-        setNewComments("");
 
         Swal.fire({
           icon: "success",
-          title: "Trueque actualizado",
-          text: "El intercambio ha sido actualizado exitosamente.",
+          title: "Comentario agregado",
+          text: "Tu comentario ha sido agregado exitosamente.",
         });
-      })
-      .catch(() => {
+      }
+    } catch (error) {
+      console.error("Error adding comment:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Hubo un problema al agregar el comentario. Intenta nuevamente.",
+      });
+    }
+  };
+
+  const handleDeleteComment = async (barteringId, commentIndex) => {
+    try {
+      const currentUserId = localStorage.getItem("idUserSign");
+      const bartering = barterings.find((b) => b.id === barteringId);
+      if (!bartering) return;
+
+      const comment = bartering.commentsB[commentIndex];
+      const isOwner = bartering.idUserCreate === currentUserId;
+      const isCommentAuthor = comment.userComent === localStorage.getItem("nameUserSign");
+
+      if (!isOwner && !isCommentAuthor) {
         Swal.fire({
           icon: "error",
-          title: "Error al actualizar trueque",
-          text: "Hubo un problema al intentar actualizar el trueque. Intenta nuevamente.",
+          title: "Acción no permitida",
+          text: "Solo el creador del trueque o el autor del comentario pueden eliminarlo.",
         });
+        return;
+      }
+
+      const result = await Swal.fire({
+        title: "¿Estás seguro?",
+        text: "Este comentario será eliminado permanentemente.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
       });
+
+      if (result.isConfirmed) {
+        const updatedComments = bartering.commentsB.filter(
+          (_, index) => index !== commentIndex
+        );
+
+        const updatedBartering = { ...bartering, commentsB: updatedComments };
+
+        await CallsBarteringsCC.UpdateBarterings(updatedBartering, barteringId);
+
+        setBarterings((prevBarterings) =>
+          prevBarterings.map((b) =>
+            b.id === barteringId ? updatedBartering : b
+          )
+        );
+
+        Swal.fire({
+          icon: "success",
+          title: "Comentario eliminado",
+          text: "El comentario ha sido eliminado exitosamente.",
+        });
+      }
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Hubo un problema al eliminar el comentario. Intenta nuevamente.",
+      });
+    }
   };
 
   // Si los trueques están cargando, mostramos un mensaje de carga
@@ -194,57 +287,64 @@ function BarterByHazelCC() {
   }
 
   return (
-    <div>
-      <h2>Wall de Trueques</h2>
-      {/* Componente para crear nuevos trueques */}
-      <BarterCreator setBarterings={setBarterings} barterings={barterings} />
+    <div className="barter-container">
+      {/* Left section: List of trueques */}
+      <div className="trueques-section">
+        <h2 className="section-title">Lista de Trueques</h2>
+        {barterings.length === 0 ? (
+          <div>No hay trueques disponibles en este momento.</div>
+        ) : (
+          <div className="barter-list">
+            {barterings.map((bartering) => (
+              <div key={bartering.id} className="barter-item">
+                <h3>
+                  Usuaria: {bartering.nameB} ofrece el recurso "{bartering.resourceOffered}", y está interesada en un recurso "{bartering.resourceRequest}".
+                </h3>
+                <p>Comentarios:</p>
+                <ul>
+                  {bartering.commentsB.map((comment, index) => (
+                    <li key={index}>
+                      <strong>{comment.userComent}:</strong> {comment.comment}
+                      {(bartering.idUserCreate === localStorage.getItem("idUserSign") ||
+                        comment.userComent === localStorage.getItem("nameUserSign")) && (
+                        <button
+                          className="delete-button"
+                          onClick={() => handleDeleteComment(bartering.id, index)}
+                        >
+                          Eliminar comentario
+                        </button>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  className="add-comment-button"
+                  onClick={() => handleAddComment(bartering.id)}
+                >
+                  Agregar Comentario
+                </button>
+                <button
+                  className="edit-button"
+                  onClick={() => handleEditClick(bartering)}
+                >
+                  Editar Trueque
+                </button>
+                <button
+                  className="delete-button"
+                  onClick={() => deleteBarter(bartering.id)}
+                >
+                  Eliminar Trueque
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
-      {/* Si no hay trueques disponibles, mostramos un mensaje */}
-      {barterings.length === 0 ? (
-        <div>No hay trueques disponibles en este momento.</div>
-      ) : (
-        <div className="barter-list">
-          {/* Mapeamos los trueques y los mostramos */}
-          {barterings.map((bartering) => (
-            <div key={bartering.id} className="barter-item">
-              <h3>
-                Usuaria: {bartering.nameB} ofrece el recurso "{bartering.resourceOffered}", y está interesada en un recurso "{bartering.resourceRequest}".
-              </h3>
-              <p>Comentarios: {bartering.commentsB ? bartering.commentsB[0].comment : "No hay comentarios"}</p>
-              <button onClick={() => handleEditClick(bartering)}>Editar</button>
-              <button onClick={() => deleteBarter(bartering.id)}>Eliminar</button>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Formulario para editar un trueque si está en modo edición */}
-      {editingBarter && (
-        <div className="edit-form">
-          <h3>Editar Trueque</h3>
-          <input
-            type="text"
-            value={newResourceOffered}
-            onChange={(e) => setNewResourceOffered(e.target.value)} // Modificamos el recurso ofrecido
-            placeholder="Nuevo recurso ofrecido"
-          />
-          <select
-            value={newResourceRequest}
-            onChange={(e) => setNewResourceRequest(e.target.value)} // Modificamos el recurso solicitado
-          >
-            <option value="practico">Práctica</option>
-            <option value="teorico">Teórica</option>
-            <option value="otro">Otro</option>
-          </select>
-          <textarea
-            value={newComments}
-            onChange={(e) => setNewComments(e.target.value)} // Modificamos los comentarios
-            placeholder="Nuevo comentario"
-          />
-          <button onClick={handleUpdateBarter}>Actualizar Trueque</button> {/* Botón para actualizar */}
-          <button onClick={() => setEditingBarter(null)}>Cancelar</button> {/* Botón para cancelar */}
-        </div>
-      )}
+      {/* Right section: BarterCreator */}
+      <div>
+        <BarterCreator setBarterings={setBarterings} barterings={barterings} />
+      </div>
     </div>
   );
 }

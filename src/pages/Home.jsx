@@ -5,26 +5,21 @@ import HeaderByHazelCC from '../components/HeaderByHazelCC'; // Importamos el co
 import AsideByHazelCC from '../components/AsideByHazelCC'; // Importamos el componente AsideByHazelCC
 import FooterByHazelCC from '../components/FooterByHazelCC'; // Importamos el componente FooterByHazelCC 
 import SeccionDestacada from '../components/SeccionDestacada'; // Importamos el componente SeccionDestacada
+import '../styles/componentscss/SeccionDestacada.css'; // Import styles for SeccionDestacada
 
 // Definimos el componente funcional Home
 function Home() {
   return (
-    <div> {/* Contenedor principal de la página de inicio */}
-      
+    <div className="home-page"> {/* Contenedor principal de la página de inicio */}
       <HeaderByHazelCC /> {/* Insertamos el componente HeaderByHazelCC  */}
-      <br /> {/* Salto de línea */}
-      
-      <AsideByHazelCC /> {/* Insertamos el componente AsideByHazelCC  */}
-      <br /> {/* Salto de línea */}
-      
-      <HomeByHazelCC /> {/* Insertamos el componente HomeByHazelCC*/}
-      <br /> {/* Salto de línea */}
-      
-      <SeccionDestacada /> {/* Insertamos el componente SeccionDestacada*/}
-      <br /> {/* Salto de línea  */}
-      
+      <div className="home-content">
+        <AsideByHazelCC /> {/* Insertamos el componente AsideByHazelCC  */}
+        <div className="main-content">
+          <HomeByHazelCC /> {/* Contenido específico de la página */}
+          <SeccionDestacada /> {/* Contenido adicional */}
+        </div>
+      </div>
       <FooterByHazelCC /> {/* Insertamos el componente FooterByHazelCC */}
-      
     </div>
   );
 }

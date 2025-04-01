@@ -1,0 +1,73 @@
+.barter-creator-container {
+    display: flex;               /* Usa flexbox para organizar los elementos internos */
+    flex-direction: column;      /* Alinea los elementos en una columna */
+    gap: 1rem;                   /* Espaciado entre los elementos */
+    padding: 20px;               /* Aumenta el padding para incrementar la altura */
+    background-color: rgb(245, 254, 237); /* Fondo claro para diferenciar el componente */
+    border-radius: 10px;         /* Bordes redondeados */
+    max-width: 300px;            /* Reduce aún más el ancho máximo del componente */
+    width: 300px;                 /* Asegura que ocupe todo el ancho disponible dentro del contenedor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    font-family: 'Sriracha', cursive;
+}
+
+.barter-creator-container h3 {
+    font-size: 1.5rem;           /* Tamaño de fuente para el título */
+    color: rgb(44,84,131);  /* Color del texto */
+    text-align: center;          /* Centra el texto del título */
+    margin-bottom: 50px;
+}
+
+.barter-creator-container input,
+.barter-creator-container select,
+.barter-creator-container textarea {
+    width: 100%;                 /* Ocupa todo el ancho disponible */
+    padding: 10px;               /* Espaciado interno */
+    border: 1px solid #ddd;      /* Borde sutil */
+    border-radius: 8px;          /* Bordes redondeados */
+    font-size: 1rem;             /* Tamaño de fuente */
+    box-sizing: border-box;      /* Incluye el padding y el borde en el ancho total */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+
+.barter-creator-container textarea {
+    resize: none;                /* Evita que el usuario cambie el tamaño del área de texto */
+    height: 100px;               /* Altura fija para el área de texto */
+}
+
+.barter-creator-container button {
+    padding: 0.75rem 1rem;       /* Espaciado interno */
+    background-color: rgb(44,84,131);   /* Color de fondo del botón */
+    color: #fff;                 /* Color del texto */
+    border: none;                /* Sin bordes */
+    border-radius: 4px;          /* Bordes redondeados */
+    font-size: 1rem;             /* Tamaño de fuente */
+    cursor: pointer;             /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.barter-creator-submit {
+    background-color: rgb(44, 84, 131);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.barter-creator-submit:hover {
+    background-color: rgb(30, 60, 100); /* Darker shade on hover */
+}
+
+.barter-creator-submit:active {
+    background-color: rgb(20, 50, 90); /* Even darker shade on click */
+}
+
+.barter-creator-container button:hover {
+    background-color: #0056b3;   /* Color de fondo al pasar el cursor */
+}

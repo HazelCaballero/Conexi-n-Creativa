@@ -109,22 +109,35 @@ function ProfileByHazelCC() {
   // Función para eliminar la cuenta del usuario
   const handleDeleteUser = async () => {
     try {
-      // Llamada a la API para eliminar la cuenta del usuario
-      await CallsUsersCC.DeleteUserCC(userId);
-      Swal.fire({
-        icon: 'success',
-        title: '¡Usuario eliminado!',
-        text: 'Tu cuenta ha sido eliminada con éxito.',
-      }).then(() => {
-        localStorage.clear();  // Limpiar localStorage después de eliminar la cuenta
-        navigate("/Inicio");  // Redirigir al inicio después de eliminar la cuenta
+      // Confirmación antes de eliminar el perfil
+      const result = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¡No podrás revertir esta acción!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: '¡Sí, eliminarlo!',
       });
+
+      if (result.isConfirmed) {
+        // Llamada a la API para eliminar la cuenta del usuario
+        await CallsUsersCC.DeleteUserCC(userId);
+        Swal.fire({
+          icon: 'success',
+          title: '¡Usuario eliminado!',
+          text: 'Tu cuenta ha sido eliminada con éxito.',
+        }).then(() => {
+          localStorage.clear(); // Limpiar localStorage después de eliminar la cuenta
+          navigate("/Inicio"); // Redirigir al inicio después de eliminar la cuenta
+        });
+      }
     } catch (error) {
-      console.error('Error al eliminar el usuario:', error);  // En caso de error al eliminar la cuenta
+      console.error('Error al eliminar el usuario:', error);
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Hubo un problema al eliminar el usuario.'
+        text: 'Hubo un problema al eliminar el usuario.',
       });
     }
   };

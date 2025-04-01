@@ -1,0 +1,42 @@
+.inicio-grid {
+  display: grid;                         /* Utiliza Grid Layout */
+  grid-template-rows: auto 1fr auto;     /* Tres filas: header, contenido principal, footer */
+  grid-template-columns: 300px 1fr;      /* Dos columnas: aside y main */
+  grid-template-areas: 
+    "header header"                      /* El header ocupa toda la primera fila */
+    "aside main"                         /* El aside ocupa la primera columna y el main la segunda */
+    "footer footer";                     /* El footer ocupa toda la tercera fila */
+  width: 100%;
+  height: 100vh;                         /* Altura completa de la ventana */
+}
+
+.header {
+  grid-area: header;                     /* Asigna al área "header" */
+}
+
+.aside {
+  grid-area: aside;                      /* Asigna al área "aside" */
+}
+
+.main {
+  grid-area: main;                       /* Asigna al área "main" */
+}
+
+.footer {
+  grid-area: footer;                     /* Asigna al área "footer" */
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.form-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

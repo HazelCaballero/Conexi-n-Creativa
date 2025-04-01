@@ -4,6 +4,7 @@ import HeaderByHazelCC from '../components/HeaderByHazelCC'; // Importamos el co
 import AsideByHazelCC from '../components/AsideByHazelCC'; // Importamos el componente AsideByHazelCC
 import FooterByHazelCC from '../components/FooterByHazelCC'; // Importamos el componente FooterByHazelCC 
 import FoundressByHazelCC from '../components/FoundressByHazelCC'; // Importamos el componente FoundressByHazelCC
+import Main from '../components/Main'; // Importar el nuevo componente Main
 
 // Definimos el componente funcional Fundadora
 function Fundadora() {
@@ -14,13 +15,13 @@ function Fundadora() {
         <HeaderByHazelCC /> {/* Insertamos el componente HeaderByHazelCC  */}
       </div>
 
-      <div className="foundress"> {/* Contenedor para el componente que muestra la información de la fundadora */}
-        <FoundressByHazelCC /> {/* Insertamos el componente FoundressByHazelCC  */}
-      </div>
-
       <div className="aside"> {/* Contenedor para la barra lateral */}
         <AsideByHazelCC /> {/* Insertamos el componente AsideByHazelCC */}
       </div>
+
+      <Main> {/* Contenedor para el componente principal */}
+        <FoundressByHazelCC /> {/* Insertamos el componente FoundressByHazelCC */}
+      </Main>
 
       <div className="footer"> {/* Contenedor para el pie de página */}
         <FooterByHazelCC /> {/* Insertamos el componente FooterByHazelCC */}

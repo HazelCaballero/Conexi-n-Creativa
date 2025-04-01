@@ -22,114 +22,20 @@
       "phoneU": "98765432"
     },
     {
-      "id": "db93",
-      "nameU": "Hazel123456",
-      "emailU": "Hazel123456@gmail.com",
-      "passwordU": "Hazel123456",
-      "phoneU": "83031497"
+      "id": "221a",
+      "nameU": "Maria98765",
+      "emailU": "Maria98765@gmail.com",
+      "passwordU": "Maria98765",
+      "phoneU": "0987654321"
     }
   ],
   "barterings": [
-    {
-      "id": "851d",
-      "nameB": "Pamela12345",
-      "idUserCreate": "25a4",
-      "resourceOffered": "hola",
-      "resourceRequest": "otro",
-      "stateB": "pendiente",
-      "commentsB": [
-        {
-          "userComent": "Pamela12345",
-          "comment": "soy pamela"
-        }
-      ]
-    },
-    {
-      "id": "ab6a",
-      "nameB": "Hazel123456",
-      "idUserCreate": "64c1",
-      "resourceOffered": "baile",
-      "resourceRequest": "practico",
-      "stateB": "pendiente",
-      "commentsB": [
-        {
-          "userComent": "Hazel123456",
-          "comment": "pink pony club"
-        }
-      ]
-    },
-    {
-      "id": "cb9b",
-      "nameB": "Hazel123456",
-      "idUserCreate": "64c1",
-      "resourceOffered": "ofrezco",
-      "resourceRequest": "practico",
-      "stateB": "pendiente",
-      "commentsB": [
-        {
-          "userComent": "Hazel123456",
-          "comment": "quiero baile"
-        }
-      ]
-    },
-    {
-      "id": "70fd",
-      "nameB": "Marta456789",
-      "idUserCreate": "55ee",
-      "resourceOffered": "soy marta",
-      "resourceRequest": "practico",
-      "stateB": "pendiente",
-      "commentsB": [
-        {
-          "userComent": "Marta456789",
-          "comment": "xd marta"
-        }
-      ]
-    }
+   
   ],
   "productos": [
-    {
-      "nombre": "hola",
-      "descripcion": "adios",
-      "precio": "5678",
-      "imagen": "no hay",
-      "id": "f8f8"
-    },
-    {
-      "nombre": "a ver",
-      "descripcion": "queso",
-      "precio": "78",
-      "imagen": "undefined",
-      "id": "3796"
-    },
-    {
-      "id": "efb2"
-    },
-    {
-      "id": "d951"
-    }
+   
   ],
   "comunicados": [
-    {
-      "id": "c30f",
-      "name": "hcaballero",
-      "email": "hazelcaballeroelizondo@gmail.com",
-      "message": "pink pony club",
-      "isInterestedInPromotion": true
-    },
-    {
-      "id": "c5cc",
-      "name": "hcaballero",
-      "email": "",
-      "message": "ferfrfe",
-      "isInterestedInPromotion": false
-    },
-    {
-      "id": "638d",
-      "name": "ftt",
-      "email": "htrt",
-      "message": "htrh",
-      "isInterestedInPromotion": false
-    }
+   
   ]
 }

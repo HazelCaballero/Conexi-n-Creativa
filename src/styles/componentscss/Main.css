@@ -1,0 +1,7 @@
+.main-container {
+    width: 80%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    height: 100%; /* Asegura que el contenedor ocupe todo el alto disponible */
+    padding: 5px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+
+}

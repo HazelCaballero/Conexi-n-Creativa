@@ -11,6 +11,11 @@ function HeaderByHazelCC() {
     navigate(route);  // Redirige a la ruta indicada por 'route' cuando se llama
   };
 
+  // Función para redirigir a la tienda en Instagram en una nueva ventana
+  const handleTiendaClick = () => {
+    window.open('https://www.instagram.com/imagenes_coloresypalabras?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank');
+  };
+
   return (
     <div>
       <header>
@@ -29,9 +34,8 @@ function HeaderByHazelCC() {
             {/* Enlaces de navegación que usan 'onClick' para cambiar la ruta */}
             <li onClick={() => handleNavigation('/Home')}>Hogar</li>  {/* Redirige al Home */}
             <li onClick={() => handleNavigation('/Inicio')}>Inicio</li>  {/* Redirige a Inicio */}
-            <li>Tienda</li>  {/* Enlace sin funcionalidad, solo texto */}
+            <li onClick={handleTiendaClick}>Tienda</li>  {/* Abre la tienda en una nueva ventana */}
             <li onClick={() => handleNavigation('/Perfil')}>Perfil</li>  {/* Redirige al Perfil */}
-            <li>Quienes somos</li>  {/* Enlace sin funcionalidad, solo texto */}
           </ul>
         </nav>
       </header>

@@ -1,0 +1,113 @@
+/* General container styling */
+.contact-container {
+  font-family: 'Sriracha', cursive;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reducir el espacio entre elementos */
+}
+
+.content-and-form {
+  display: flex;
+  flex-direction: row; /* Ensure sections are aligned horizontally */
+  gap: 20px;
+  align-items: flex-start; /* Align items at the top */
+}
+
+.content-sections {
+  flex: 2; /* Take more space for the content sections */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Section titles */
+.contact-container h2 {
+  color: rgb(44,84,131);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Paragraph styling */
+.contact-container p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* List styling */
+.contact-container ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #555;
+  font-size: 0.8rem;
+}
+
+
+/* Form styling */
+.contact-form {
+  margin-top: 0; /* Remove top margin to align with content sections */
+  padding: 15px; /* Reducir el padding */
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* Allow full width within its container */
+  margin-left: auto;
+  margin-right: auto;
+  flex: 1; /* Take less space for the form */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ccc;
+  max-height: 600px; /* Limitar la altura máxima */
+  overflow-y: auto; /* Habilitar scroll si el contenido excede la altura */
+  background-color: #f9f9f9;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 90%; /* Reduced width */
+  padding: 8px; /* Reducir el padding interno */
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem; /* Reducir el tamaño de fuente */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 80px; /* Reducir la altura del textarea */
+}
+
+.contact-form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.contact-form button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 8px 15px; /* Reducir el padding */
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem; /* Reducir el tamaño de fuente */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}

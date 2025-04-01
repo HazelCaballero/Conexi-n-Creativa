@@ -4,6 +4,7 @@ import ContactByHazelCC from '../components/ContactByHazelCC'; // Importamos el 
 import HeaderByHazelCC from '../components/HeaderByHazelCC'; // Importamos el componente HeaderByHazelCC
 import AsideByHazelCC from '../components/AsideByHazelCC'; // Importamos el componente AsideByHazelCC
 import FooterByHazelCC from '../components/FooterByHazelCC'; // Importamos el componente FooterByHazelCC
+import Main from '../components/Main'; // Importar el nuevo componente Main
 
 // Definimos el componente funcional Comunicate
 function Comunicate() {
@@ -13,10 +14,12 @@ function Comunicate() {
       <HeaderByHazelCC /> {/* Insertamos el componente HeaderByHazelCC */}
       <br /> {/* Salto de línea  */}
       
-      <AsideByHazelCC /> {/* Insertamos el componente AsideByHazelCC */}
-      <br /> {/* Salto de línea  */}
-      
-      <ContactByHazelCC /> {/* Insertamos el componente ContactByHazelCC*/}
+      <div style={{ display: 'flex', alignItems: 'flex-start' }}> {/* Flex container */}
+        <AsideByHazelCC /> {/* Sidebar */}
+        <Main>
+          <ContactByHazelCC /> {/* Contenido específico de la página */}
+        </Main>
+      </div>
       <br /> {/* Salto de línea  */}
       
       <FooterByHazelCC /> {/* Insertamos el componente FooterByHazelCC */}

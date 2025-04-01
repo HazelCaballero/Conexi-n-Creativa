@@ -1,37 +1,24 @@
-import React from 'react';  // Importamos React para crear el componente
-import { useNavigate } from 'react-router-dom';  // Importamos el hook 'useNavigate' para navegar entre rutas
-import '../styles/componentscss/FooterByHazelCC.css';  // Importamos el archivo CSS para los estilos del pie de página
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/componentscss/FooterByHazelCC.css';
 
 function FooterByHazelCC() {
-  const navigate = useNavigate();  // Inicializamos el hook 'useNavigate' para poder navegar entre las páginas
+  const navigate = useNavigate();
 
-  // Funciones para navegar a las rutas específicas cuando se haga clic en los botones
   const navigateToComunicate = () => {
-    navigate('/Comunicate');  // Redirige a la página "Comunicate"
-  };
-
-  const navigateToRecursos = () => {
-    navigate('/Recursos');  // Redirige a la página "Recursos utilizados"
+    navigate('/Comunicate');
   };
 
   return (
     <div>
       <footer>
-        {/* Contenedor para los elementos del pie de página */}
-        <div className="footer-item">Derechos reservados 2025</div>  {/* Texto que indica los derechos reservados */}
-        
-        {/* Contenedor para el botón "Comunicate" que navega a la página de contacto */}
-        <div className="footer-item">
-          <button onClick={navigateToComunicate}>Comunicate</button>  {/* Al hacer clic, navega a la página de contacto */}
-        </div>
-        
-        {/* Contenedor para el botón "Recursos utilizados" que aún no tiene una ruta asociada */}
-        <div className="footer-item">
-        <p> Recursos utilizados </p> 
+        <div className="footer-item">Derechos reservados 2025</div> {/* Alineado a la izquierda */}
+        <div>
+          <button onClick={navigateToComunicate}>Comunicate</button> {/* Alineado a la derecha */}
         </div>
       </footer>
     </div>
   );
 }
 
-export default FooterByHazelCC;  // Exportamos el componente para usarlo en otras partes de la aplicación
+export default FooterByHazelCC;

@@ -1,36 +1,41 @@
+.sriracha-regular {
+  font-family: "Sriracha", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Estilo para el aside en general */
 aside {
-    width: 250px; /* Ajusta el tamaño del aside (ancho) */
-    background-color: #f4f4f4; /* Color de fondo suave para el aside */
-    padding: 20px; /* Espaciado interno (relleno) alrededor del contenido */
-    border-radius: 10px; /* Bordes redondeados para un efecto más suave */
+    width: 210px; /* Ajusta el tamaño del aside (ancho) */
   }
   
   /* Estilo para la lista no ordenada dentro del aside */
   .aside-list {
     list-style-type: none; /* Elimina los puntos por defecto de la lista */
-    padding: 0; /* Elimina el padding por defecto que se agrega a las listas */
+    padding: 10px 0; /* Add consistent padding */
     margin: 0; /* Elimina el margen por defecto que se agrega a las listas */
     display: flex; /* Usamos Flexbox para manejar la distribución de los elementos */
     flex-direction: column; /* Los elementos estarán en una columna (uno debajo del otro) */
-    justify-content: space-between; /* Distribuye el espacio de manera igual entre los elementos */
-    height: 100%; /* Hace que la lista ocupe todo el alto disponible del contenedor */
+    background-color: rgb(230,245,251);
+    color: rgb(44,84,131);
+    height: 77vh; /* Altura del aside para ocupar toda la pantalla */
+    justify-content: space-evenly; /* Distribuye los elementos con igual espacio entre ellos */
+    align-items: center; /* Centra los elementos horizontalmente */
+  
   }
   
   /* Estilo para cada item de la lista dentro del aside */
   .aside-list li {
     padding: 10px; /* Espaciado interno de cada elemento de la lista */
-    background-color: #fff; /* Fondo blanco para los elementos de la lista */
-    border-radius: 5px; /* Bordes redondeados en cada item para un efecto más suave */
-    margin-bottom: 10px; /* Espacio de 10px entre los elementos de la lista */
     text-align: center; /* Centra el texto dentro de cada item de la lista */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
     transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+    font-family: "Sriracha", cursive;
+    font-size: 4vh;
   }
   
   /* Estilo al pasar el mouse sobre cada item de la lista */
   .aside-list li:hover {
-    background-color: #d1e7dd; /* Cambia el color de fondo al pasar el mouse */
+    background-color: rgb(44,84,131); /* Cambia el color de fondo al pasar el mouse */
     cursor: pointer; /* Cambia el cursor a 'pointer' para indicar que es interactivo */
+    color:  rgb(230,245,251);
   }
-  

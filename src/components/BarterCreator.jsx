@@ -1,6 +1,7 @@
 import React, { useState } from "react"; // Importamos React y useState para manejar el estado local del componente
 import Swal from "sweetalert2"; // Importamos SweetAlert para mostrar notificaciones emergentes de manera visual
 import CallsBarteringsCC from "../services/CallsBarteringsCC"; // Importamos la función para interactuar con la API y realizar acciones sobre los trueques
+import "../styles/componentscss/BarterCreator.css"; // Import the new CSS file
 
 // Componente principal para crear un nuevo trueque
 function BarterCreator({ setBarterings, barterings }) {
@@ -96,7 +97,7 @@ function BarterCreator({ setBarterings, barterings }) {
 
   // **Renderizamos la interfaz de usuario (return)**
   return (
-    <div>
+    <div className="barter-creator-container">
       <h3>Crear un nuevo trueque</h3> {/* Título principal que indica la acción de crear un nuevo trueque */}
       
       {/* Campo de entrada para el recurso que se ofrece */}
