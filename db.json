@@ -30,12 +30,93 @@
     }
   ],
   "barterings": [
-   
+    {
+      "id": "afa0",
+      "nameB": "Maria98765",
+      "idUserCreate": "221a",
+      "resourceOffered": "clases de karate",
+      "resourceRequest": "teorico",
+      "stateB": "pendiente",
+      "commentsB": [
+        {
+          "userComent": "Maria98765",
+          "comment": "clases virtuales de Karate, miercoles y jueves entre las 2:00 pm y 8:00 pm, me interesan clases de teoria y tenicas sobre reposteria o cocina"
+        },
+        {
+          "userComent": "Pamela12345",
+          "comment": "Yo se algo de reposteria, nos comunicamos si gustas"
+        }
+      ]
+    },
+    {
+      "id": "9f15",
+      "nameB": "Maria98765",
+      "idUserCreate": "221a",
+      "resourceOffered": "ingles",
+      "resourceRequest": "practico",
+      "stateB": "pendiente",
+      "commentsB": [
+        {
+          "userComent": "Maria98765",
+          "comment": "baile"
+        },
+        {
+          "userComent": "Marta456789",
+          "comment": "me interesa puedes escribirme a 83031497"
+        }
+      ]
+    },
+    {
+      "id": "841d",
+      "nameB": "Pamela12345",
+      "idUserCreate": "25a4",
+      "resourceOffered": "tejer",
+      "resourceRequest": "practico",
+      "stateB": "pendiente",
+      "commentsB": [
+        {
+          "userComent": "Pamela12345",
+          "comment": "guitarra"
+        }
+      ]
+    }
   ],
   "productos": [
-   
+    {
+      "id": "68c7",
+      "nombre": "Galletas",
+      "descripcion": "Receta de galletas de chispitas de chocolate",
+      "precio": "4000",
+      "imagen": "",
+      "interestedUsers": [
+        "221a",
+        "55ee"
+      ]
+    },
+    {
+      "id": "a57f",
+      "nombre": "Ramo",
+      "descripcion": "Patron para tener ramo de 7 flores",
+      "precio": "5000",
+      "imagen": ""
+    },
+    {
+      "id": "4e0b",
+      "nombre": "Agenda",
+      "descripcion": "Agenda con secciones de organizacion para estudio",
+      "precio": "8000",
+      "imagen": "",
+      "interestedUsers": [
+        "25a4"
+      ]
+    },
+    {
+      "id": "3e9e",
+      "nombre": "Aretes",
+      "descripcion": "Ares de mariposa",
+      "precio": "3000",
+      "imagen": ""
+    }
   ],
-  "comunicados": [
-   
-  ]
+  "comunicados": []
 }

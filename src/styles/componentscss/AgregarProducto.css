@@ -2,8 +2,8 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 150vh;
-    height: 70vh;
+    width: 60vh; /* Further reduce the width */
+    height: 60vh; /* Reduce the height */
     background-color: rgb(245,254,237);
     overflow-y: scroll;
     position: relative;

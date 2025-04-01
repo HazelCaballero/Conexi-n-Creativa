@@ -4,6 +4,7 @@ import AsideByHazelCC from '../components/AsideByHazelCC'; // Importamos el comp
 import FooterByHazelCC from '../components/FooterByHazelCC'; // Importamos el componente Footer, que contiene el pie de página
 import AgregarProducto from '../components/AgregarProducto'; // Importamos el componente AgregarProducto, que se encargará de la funcionalidad para agregar productos
 import Main from '../components/Main'; // Importar el nuevo componente Main
+import DetallesProducto from '../components/DetallesProducto'; // Import the new component
 import '../styles/pagescss/AdminTools.css'; // Importamos los estilos específicos para esta página desde un archivo CSS
 
 // Componente funcional AdminTools
@@ -20,7 +21,10 @@ function AdminTools() {
       </div>
 
       <Main className="agregar"> {/* Insertamos el componente Main */}
+        <div className="agregar-detalles-container" style={{ display: 'flex', gap: '20px' }}>
           <AgregarProducto /> {/* Insertamos el componente AgregarProducto que probablemente contiene el formulario o las herramientas para agregar un nuevo producto */}
+          <DetallesProducto /> {/* Insertamos el nuevo componente DetallesProducto */}
+        </div>
       </Main>
 
       <div className="footer-container"> {/* Contenedor para el pie de página */}

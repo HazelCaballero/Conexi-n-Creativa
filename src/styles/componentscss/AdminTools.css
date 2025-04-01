@@ -1,0 +1,11 @@
+.admin-tools-grid {
+  overflow: hidden; /* Prevent unnecessary scrolling */
+}
+
+.agregar-detalles-container {
+  display: flex;
+  max-width: 100%; /* Ensure the container doesn't exceed the page width */
+  flex-wrap: wrap; /* Allow components to wrap if they don't fit horizontally */
+  gap: 15px; /* Adjust spacing between components */
+  justify-content: center; /* Center the components horizontally */
+}

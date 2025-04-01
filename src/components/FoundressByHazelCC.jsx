@@ -1,10 +1,11 @@
-import React from 'react'; // Importamos React para poder crear el componente
+import React, { useState } from 'react'; // Importamos useState para manejar el estado
 import '../styles/componentscss/FoundressByHazelCC.css'; // Importamos los estilos específicos para este componente
 import fundadoraImage from '../assets/img/IMG_3426-01.jpeg'; // Importamos la imagen de la fundadora
 import { useNavigate } from 'react-router-dom'; // Importamos el hook 'useNavigate' para poder redirigir al usuario a otra página
 
 function FoundressByHazelCC() {
   const navigate = useNavigate(); // Inicializamos el hook 'useNavigate' para manejar la redirección
+  const [isImageLoaded, setIsImageLoaded] = useState(false); // Estado para controlar si la imagen se cargó
 
   // Función para manejar el clic en el botón "Únete a la comunidad"
   const handleJoinCommunity = () => {
@@ -18,10 +19,12 @@ function FoundressByHazelCC() {
 
      
       <div className="foundress-image-container">
+        {!isImageLoaded && <div className="image-placeholder">Cargando...</div>} {/* Marcador de posición */}
         <img 
           src={fundadoraImage}  
           alt="Hazel Caballero" 
-          className="foundress-image" 
+          className={`foundress-image ${isImageLoaded ? 'visible' : 'hidden'}`} 
+          onLoad={() => setIsImageLoaded(true)} // Cambiamos el estado cuando la imagen se carga
         />
       </div>
 
@@ -43,4 +46,4 @@ function FoundressByHazelCC() {
   );
 }
 
-export default FoundressByHazelCC; 
+export default FoundressByHazelCC;
